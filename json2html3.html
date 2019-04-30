@@ -1,0 +1,37 @@
+<script src="json2html.js">
+</script>
+
+<table id="t1"></table>
+
+<script>
+var data = [
+  {
+    "chinese": 80,
+    "mathematics": 89,
+    "english": 90,
+  },
+  {
+      "chinese": 85,
+      "mathematics": 55,
+      "physics": 89
+    }
+];
+ 
+ 
+var htmlMetadata = {
+  "heads": ["语文", "数学", "英语", "物理"],
+  "dataKeys": [["chinese", "mathematics", "english", "physics"], ["text","1:2:total",'title']], // rowspan:colspan:value
+  "data": [data, [{"text": "合计","total": "xx","title":"as"}]]
+};
+
+/* 
+ var htmlMetadata = {
+  "heads": hj.heads(data,['english']),
+  "dataKeys": [hj.heads(data,['english'])],
+  "data": [data]
+};  */
+
+var html = hj.json2Html(htmlMetadata);
+
+document.getElementById('t1').innerHTML=html
+</script>
